@@ -1,0 +1,6 @@
+@TeamFlow.Auth.Api_HostAddress = http://localhost:5024
+
+GET {{TeamFlow.Auth.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
