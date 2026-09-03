@@ -1,4 +1,6 @@
-﻿namespace Auth.Api
+﻿using TeamFlow.Common.middleware;
+
+namespace Auth.Api
 {
     public class Startup
     {
@@ -20,6 +22,8 @@
             }
 
             app.UseHttpsRedirection();
+
+            app.UseMiddleware<RequestLoggingMiddleware>();
 
             app.UseAuthorization();
 
