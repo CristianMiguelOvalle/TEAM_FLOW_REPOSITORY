@@ -2,6 +2,6 @@
   <Folder Name="/src/" />
   <Folder Name="/src/auth/" />
   <Folder Name="/src/auth/Auth.Api/">
-    <Project Path="src/auth/Auth.Api/TeamFlow.Auth.Api.csproj" />
+    <Project Path="src/auth/Auth.Api/Auth.Api.csproj" />
   </Folder>
 </Solution>
