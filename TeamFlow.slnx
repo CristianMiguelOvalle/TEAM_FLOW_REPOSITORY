@@ -7,4 +7,11 @@
   <Folder Name="/src/common/">
     <Project Path="src/common/TeamFlow.Common/TeamFlow.Common.csproj" Id="442b9893-fea6-4d65-91c2-2c1050a140b7" />
   </Folder>
+  <Folder Name="/src/db/">
+    <Project Path="src/db/TeamFlow.DB/TeamFlow.DB.csproj" Id="2bb25a54-96a6-4872-8ade-9126f7dfcad5" />
+    <Project Path="src/db/TeamFlow.Migrator/TeamFlow.Migrator.csproj" Id="6e7705cc-be38-4c34-a61a-69cd9b091374" />
+  </Folder>
+  <Folder Name="/src/project/">
+    <Project Path="src/project/TeamFlow.Projects.Api/TeamFlow.Projects.Api.csproj" Id="ebc21eb3-4b3b-4383-8a28-bdc6331855ca" />
+  </Folder>
 </Solution>
