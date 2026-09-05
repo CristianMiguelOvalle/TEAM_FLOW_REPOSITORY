@@ -8,10 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.11" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\db\TeamFlow.DB\TeamFlow.DB.csproj" />
+    <ProjectReference Include="..\TeamFlow.Project.Services\TeamFlow.Projects.Repository.csproj" />
   </ItemGroup>
 
 </Project>

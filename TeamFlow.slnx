@@ -12,6 +12,7 @@
     <Project Path="src/db/TeamFlow.Migrator/TeamFlow.Migrator.csproj" Id="6e7705cc-be38-4c34-a61a-69cd9b091374" />
   </Folder>
   <Folder Name="/src/project/">
+    <Project Path="src/project/TeamFlow.Project.Services/TeamFlow.Projects.Repository.csproj" Id="d9b6bb28-f3e3-4a58-a631-1ca636fccd1a" />
     <Project Path="src/project/TeamFlow.Projects.Api/TeamFlow.Projects.Api.csproj" Id="ebc21eb3-4b3b-4383-8a28-bdc6331855ca" />
   </Folder>
 </Solution>
