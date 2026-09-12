@@ -14,7 +14,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\db\TeamFlow.DB\TeamFlow.DB.csproj" />
-    <ProjectReference Include="..\TeamFlow.Project.Services\TeamFlow.Projects.Repository.csproj" />
+    <ProjectReference Include="..\TeamFlow.Projects.Handlers\TeamFlow.Projects.Handlers.csproj" />
+    <ProjectReference Include="..\TeamFlow.Projects.Handler\TeamFlow.Projects.Handlers.csproj" />
+    <ProjectReference Include="..\TeamFlow.Projects.Repositories\TeamFlow.Projects.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

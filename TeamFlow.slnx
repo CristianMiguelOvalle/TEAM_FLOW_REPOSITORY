@@ -1,10 +1,12 @@
 <Solution>
   <Folder Name="/src/" />
-  <Folder Name="/src/auth/" />
-  <Folder Name="/src/auth/Auth.Api/">
+  <Folder Name="/src/auth/">
     <Project Path="src/auth/Auth.Api/TeamFlow.Auth.Api.csproj" />
+    <Project Path="src/auth/TeamFlow.Auth.Handlers/TeamFlow.Auth.Handlers.csproj" Id="e6777df5-2324-4da5-871e-684a545ba852" />
+    <Project Path="src/auth/TeamFlow.Auth.Repositories/TeamFlow.Auth.Repositories.csproj" Id="9b7eeff4-e788-41b6-9977-7997f7e87981" />
   </Folder>
   <Folder Name="/src/common/">
+    <Project Path="src/common/TeamFlow.Common.Dto/TeamFlow.Common.Dto.csproj" Id="75f5f9be-d9d8-4161-bfb4-efba923848d1" />
     <Project Path="src/common/TeamFlow.Common/TeamFlow.Common.csproj" Id="442b9893-fea6-4d65-91c2-2c1050a140b7" />
   </Folder>
   <Folder Name="/src/db/">
@@ -12,7 +14,8 @@
     <Project Path="src/db/TeamFlow.Migrator/TeamFlow.Migrator.csproj" Id="6e7705cc-be38-4c34-a61a-69cd9b091374" />
   </Folder>
   <Folder Name="/src/project/">
-    <Project Path="src/project/TeamFlow.Project.Services/TeamFlow.Projects.Repository.csproj" Id="d9b6bb28-f3e3-4a58-a631-1ca636fccd1a" />
     <Project Path="src/project/TeamFlow.Projects.Api/TeamFlow.Projects.Api.csproj" Id="ebc21eb3-4b3b-4383-8a28-bdc6331855ca" />
+    <Project Path="src/project/TeamFlow.Projects.Handlers/TeamFlow.Projects.Handlers.csproj" Id="636bd46b-5114-4424-8f62-9b88e6b93af1" />
+    <Project Path="src/project/TeamFlow.Projects.Repositories/TeamFlow.Projects.Repositories.csproj" Id="60ae6722-e60d-4b7c-afce-b09f4b227819" />
   </Folder>
 </Solution>

@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using TeamFlow.DB.enums;
 
-namespace TeamFlow.DB.entities
+namespace TeamFlow.Common.Dto.Project
 {
-    public class Project
+    public class ProjectDto
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
         public ProjectStatusEnum Status { get; set; }
         public bool IsActive { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
+
     }
 }

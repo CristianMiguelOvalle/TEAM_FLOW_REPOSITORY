@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using TeamFlow.DB.entities;
 using TeamFlow.DB.enums;
-using TeamFlow.Projects.Repository.IRespositories;
 
-namespace TeamFlow.Projects.Repository.Repositories
+namespace TeamFlow.Projects.Repositories.ProjectRepositories
 {
     public class ProjectRepository : IProjectRepository
     {
-
         public List<Project> GetProjectList()
         {
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeamFlow.DB.entities;
-using TeamFlow.Projects.Repository.IRespositories;
+using TeamFlow.Projects.Handlers.ProjectHandlers;
 
 namespace TeamFlow.Projects.Api.Controllers
 {
@@ -8,17 +8,17 @@ namespace TeamFlow.Projects.Api.Controllers
     [ApiController]
     public class ProjectsController : ControllerBase
     {
-        private readonly IProjectRepository _projectRepository;
+        private readonly IProjectHandler _projectHandler;
 
-        public ProjectsController(IProjectRepository projectRepository)
+        public ProjectsController(IProjectHandler projectHandler)
         {
-            _projectRepository = projectRepository;
+            _projectHandler = projectHandler;
         }
 
         [HttpGet()]
         public async Task<ActionResult> GetProjects()
         {
-            return Ok(_projectRepository.GetProjectList());
+            return Ok(_projectHandler.GetProjectList());
         }
 
         [HttpGet("{id}")]
