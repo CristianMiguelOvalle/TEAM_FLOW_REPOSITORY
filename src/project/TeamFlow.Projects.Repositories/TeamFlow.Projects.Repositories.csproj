@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\common\TeamFlow.Common.Dto\TeamFlow.Common.Dto.csproj" />
+    <ProjectReference Include="..\..\common\TeamFlow.Common\TeamFlow.Common.csproj" />
     <ProjectReference Include="..\..\db\TeamFlow.DB\TeamFlow.DB.csproj" />
   </ItemGroup>
 

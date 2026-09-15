@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\common\TeamFlow.Common\TeamFlow.Common.csproj" />
     <ProjectReference Include="..\TeamFlow.Projects.Repositories\TeamFlow.Projects.Repositories.csproj" />
   </ItemGroup>
 

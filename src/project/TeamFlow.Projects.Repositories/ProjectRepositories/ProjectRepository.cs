@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TeamFlow.Common.Dto.Project;
+using TeamFlow.Common.ViewModels;
 using TeamFlow.DB.entities;
 using TeamFlow.DB.enums;
 
@@ -8,42 +10,29 @@ namespace TeamFlow.Projects.Repositories.ProjectRepositories
 {
     public class ProjectRepository : IProjectRepository
     {
-        public List<Project> GetProjectList()
+        public async Task<PaginationResult<ProjectDto>> GetProjectList(PaginationRequest<ProjectDto_FilterRequest> request)
         {
+            return new PaginationResult<ProjectDto>();
+        }
 
-            return new List<Project>()
-            {
-                new Project()
-                {
-                    CreatedAt = DateTime.Today,
-                    Id = Guid.NewGuid(),
-                    Description = "Description",
-                    Name = "Fiury",
-                    Status = ProjectStatusEnum.Created,
-                    UpdateAt = null
-                },
+        public Task<ProjectDto> GetProjectById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
 
-                new Project()
-                {
-                    CreatedAt = DateTime.UtcNow,
-                    Id = Guid.NewGuid(),
-                    Description = "Description",
-                    Name = "Caja fuerte",
-                    Status = ProjectStatusEnum.InProgress,
-                    UpdateAt = null
-                },
+        public Task<ProjectDto> CreateProject(ProjectDto_CreateRequest project)
+        {
+            throw new NotImplementedException();
+        }
 
-                new Project()
-                {
-                    CreatedAt = DateTime.Now,
-                    Id = Guid.NewGuid(),
-                    Description = "Description",
-                    Name = "SGM",
-                    Status = ProjectStatusEnum.Done,
-                    UpdateAt = null
-                }
-            };
+        public Task<ProjectDto> UpdateProject(ProjectDto_UpdateRequest project, Guid id)
+        {
+            throw new NotImplementedException();
+        }
 
+        public Task<ProjectDto> DeleteProject(Guid id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

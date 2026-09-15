@@ -13,6 +13,9 @@
     <Project Path="src/db/TeamFlow.DB/TeamFlow.DB.csproj" Id="2bb25a54-96a6-4872-8ade-9126f7dfcad5" />
     <Project Path="src/db/TeamFlow.Migrator/TeamFlow.Migrator.csproj" Id="6e7705cc-be38-4c34-a61a-69cd9b091374" />
   </Folder>
+  <Folder Name="/src/document/">
+    <Project Path="src/document/TeamFlow.Documents.Api/TeamFlow.Documents.Api.csproj" Id="8a6177a3-1517-43c1-897c-3b4d1f0f7ea7" />
+  </Folder>
   <Folder Name="/src/project/">
     <Project Path="src/project/TeamFlow.Projects.Api/TeamFlow.Projects.Api.csproj" Id="ebc21eb3-4b3b-4383-8a28-bdc6331855ca" />
     <Project Path="src/project/TeamFlow.Projects.Handlers/TeamFlow.Projects.Handlers.csproj" Id="636bd46b-5114-4424-8f62-9b88e6b93af1" />

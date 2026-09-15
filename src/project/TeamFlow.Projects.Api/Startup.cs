@@ -1,4 +1,6 @@
-﻿using TeamFlow.Projects.Handlers.ProjectHandlers;
+﻿using TeamFlow.Projects.Handlers;
+using TeamFlow.Projects.Handlers.ProjectHandlers;
+using TeamFlow.Projects.Repositories;
 using TeamFlow.Projects.Repositories.ProjectRepositories;
 
 namespace TeamFlow.Projects.Api
@@ -12,14 +14,9 @@ namespace TeamFlow.Projects.Api
             services.AddControllers();
             services.AddOpenApi();
             services.AddSwaggerGen();
+            services.AddHandler();
+            services.AddRepository();
 
-            #region Repositories
-            services.AddScoped<IProjectRepository, ProjectRepository>();
-            #endregion
-
-            #region Handlers
-            services.AddTransient<IProjectHandler, ProjectHandler>();
-            #endregion
         }
 
         public static void Configure(WebApplication app)

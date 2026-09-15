@@ -10,12 +10,14 @@ namespace TeamFlow.DB.enums
         [Description("Ninguno")]
         None = 0,
         [Description("Creado")]
-        Created = 0,
+        Created = 1,
         [Description("En proceso")]
-        InProgress = 0,
+        InProgress = 2,
         [Description("Pending")]
-        Pending = 0,
+        Pending = 3,
+        [Description("Archivado")]
+        Archived = 4,
         [Description("Terminado")]
-        Done = 0
+        Done = 5
     }
 }

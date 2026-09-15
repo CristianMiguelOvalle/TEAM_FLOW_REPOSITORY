@@ -5,18 +5,16 @@ using TeamFlow.DB.enums;
 
 namespace TeamFlow.DB.entities
 {
-    public class ProjectTask
+    public class ProjectMember
     {
         public Guid Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public TaskStatus Status { get; set; }
-        public TaskPriorityEnum Priority { get; set; }
-        public Guid? AssignedUserId { get; set; }
         public Guid ProjectId { get; set; }
         public Project Project { get; set; }
+        public Guid UserId { get; set; }
+        public User User { get; set; }
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public ProjectMemberRoleEnum Role { get; set; }
+        public DateTime JoinedAt { get; set; }
     }
 }
