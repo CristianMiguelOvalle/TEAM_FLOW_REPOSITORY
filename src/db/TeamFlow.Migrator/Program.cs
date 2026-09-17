@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.Extensions.Hosting;
+using TeamFlow.Migrator;
 
-namespace TeamFlow.Migrator
-{
-    internal class Program
-    {
-        public static void Main(string[] args)
-        {
-            Console.WriteLine("Starting migrator...");
-        }
+var builder = Host.CreateApplicationBuilder(args);
 
-    }
-}
+Startup.ConfigureServices(
+    builder.Services,
+    builder.Configuration);
+
+using var host = builder.Build();
+
+await Startup.RunAsync(host.Services);

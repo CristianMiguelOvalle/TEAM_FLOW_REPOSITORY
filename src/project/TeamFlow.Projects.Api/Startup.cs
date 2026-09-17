@@ -1,7 +1,6 @@
-﻿using TeamFlow.Projects.Handlers;
-using TeamFlow.Projects.Handlers.ProjectHandlers;
+﻿using TeamFlow.Migrator;
+using TeamFlow.Projects.Handlers;
 using TeamFlow.Projects.Repositories;
-using TeamFlow.Projects.Repositories.ProjectRepositories;
 
 namespace TeamFlow.Projects.Api
 {
@@ -16,6 +15,7 @@ namespace TeamFlow.Projects.Api
             services.AddSwaggerGen();
             services.AddHandler();
             services.AddRepository();
+            services.AddTeamFlowContext(configuration);
 
         }
 

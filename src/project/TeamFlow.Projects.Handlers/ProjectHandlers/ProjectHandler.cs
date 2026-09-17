@@ -22,7 +22,7 @@ namespace TeamFlow.Projects.Handlers.ProjectHandlers
             return await _projectRepository.GetProjectList(request);
         }
 
-        public async Task<ProjectDto> GetProjectById(Guid id)
+        public async Task<ProjectDto?> GetProjectById(Guid id)
         {
             return await _projectRepository.GetProjectById(id);
         }

@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TeamFlow.Common.contracts;
 
 namespace TeamFlow.DB.entities
 {
-    public class User
+    public class User : IAuditableEntity, IDeleteFlagEntity
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public bool IsActive { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
+        public DateTimeOffset? LastUpdatedDate { get; set; }
         public bool IsDelete { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
     }
 }

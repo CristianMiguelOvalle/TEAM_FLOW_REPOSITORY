@@ -7,9 +7,7 @@ namespace TeamFlow.Migrator
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddTeamFlowContext(
-       this IServiceCollection services,
-       IConfiguration configuration)
+        public static IServiceCollection AddTeamFlowContext( this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString =
                 configuration.GetConnectionString("TeamFlowConnection");

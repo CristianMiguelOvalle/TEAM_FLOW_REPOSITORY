@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\common\TeamFlow.Common\TeamFlow.Common.csproj" />
+    <ProjectReference Include="..\TeamFlow.Auth.Handlers\TeamFlow.Auth.Handlers.csproj" />
   </ItemGroup>
 
 </Project>

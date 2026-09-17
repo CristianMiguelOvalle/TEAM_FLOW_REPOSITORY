@@ -6,7 +6,7 @@ namespace TeamFlow.Common.Dto.Project
 {
     public class ProjectDto_FilterRequest
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public string? Description { get; set; }
     }
 }

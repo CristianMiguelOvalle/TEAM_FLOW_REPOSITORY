@@ -11,6 +11,8 @@ namespace Auth.Api
             services.AddControllers();
             services.AddOpenApi();
             services.AddSwaggerGen();
+            //services.AddHandler();
+            //services.AddRepository();
         }
 
         public static void Configure(WebApplication app)

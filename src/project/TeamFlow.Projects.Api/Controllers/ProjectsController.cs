@@ -24,7 +24,7 @@ namespace TeamFlow.Projects.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProjectDto>>GetProjectById(Guid id)
+        public async Task<ActionResult<ProjectDto?>>GetProjectById(Guid id)
         {
             return Ok(await _projectHandler.GetProjectById(id));
         }

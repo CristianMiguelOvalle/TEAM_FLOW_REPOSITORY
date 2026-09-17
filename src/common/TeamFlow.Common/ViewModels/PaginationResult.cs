@@ -34,7 +34,7 @@ namespace TeamFlow.Common.ViewModels
         {
             int skip = (pageNumber - 1) * pageSize;
             var grid = new PaginationResult<T>();
-            var numberRecords = await queryable.CountAsync();
+            var numberRecords = await queryable.CountAsync(cancellationToken);
             grid.NumberRecords = numberRecords;
             grid.List = await queryable.Skip(skip).Take(pageSize).ToListAsync(cancellationToken);
 
