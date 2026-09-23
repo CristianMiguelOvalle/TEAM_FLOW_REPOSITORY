@@ -48,15 +48,29 @@ namespace TeamFlow.DB
                 }
             }
         }
+
+        private void ApplyEntityRules()
+        {
+            foreach (var entry in ChangeTracker.Entries<IEntity>())
+            {
+                if (entry.State == EntityState.Added &&
+                    entry.Entity.Id == Guid.Empty)
+                {
+                    entry.Entity.Id = Guid.NewGuid();
+                }
+            }
+        }
         public override int SaveChanges()
         {
             ApplyAudit();
+            ApplyEntityRules();
             return base.SaveChanges();
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             ApplyAudit();
+            ApplyEntityRules();
             return base.SaveChangesAsync(cancellationToken);
         }
     }

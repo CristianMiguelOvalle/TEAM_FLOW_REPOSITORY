@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TeamFlow.Common.Dto.Project;
+using TeamFlow.Common.Dto.ProjectTask;
 using TeamFlow.Common.ViewModels;
 using TeamFlow.DB.entities;
 using TeamFlow.Projects.Repositories.ProjectRepositories;
@@ -27,19 +28,24 @@ namespace TeamFlow.Projects.Handlers.ProjectHandlers
             return await _projectRepository.GetProjectById(id);
         }
 
-        public async Task<ProjectDto> CreateProject(ProjectDto_CreateRequest project)
+        public async Task<ProjectDto> CreateProject(ProjectDto_CreateRequest project, CancellationToken cancellationToken)
         {
-            return await _projectRepository.CreateProject(project);
+            return await _projectRepository.CreateProject(project, cancellationToken);
         }
 
-        public async Task<ProjectDto> UpdateProject(ProjectDto_UpdateRequest project, Guid id)
+        public async Task<ProjectDto> UpdateProject(ProjectDto_UpdateRequest project, Guid id, CancellationToken cancellationToken)
         {
-            return await _projectRepository.UpdateProject(project, id);
+            return await _projectRepository.UpdateProject(project, id, cancellationToken);
         }
 
-        public async Task<ProjectDto> DeleteProject(Guid id)
+        public async Task<bool> DeleteProject(Guid id)
         {
             return await _projectRepository.DeleteProject(id);
+        }
+
+        public async Task<List<ProjectTaskDto>>GetProjectTasks(Guid projectId)
+        {
+            return await _projectRepository.GetProjectTasks(projectId);
         }
     }
 }

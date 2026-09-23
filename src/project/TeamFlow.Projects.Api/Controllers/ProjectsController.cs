@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeamFlow.Common.Dto.Project;
+using TeamFlow.Common.Dto.ProjectTask;
 using TeamFlow.Common.ViewModels;
 using TeamFlow.DB.entities;
 using TeamFlow.Projects.Handlers.ProjectHandlers;
@@ -30,21 +31,27 @@ namespace TeamFlow.Projects.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ProjectDto>>CreateProject(ProjectDto_CreateRequest project)
+        public async Task<ActionResult<ProjectDto>>CreateProject(ProjectDto_CreateRequest project, CancellationToken cancellationToken = default)
         {
-            return Ok(await _projectHandler.CreateProject(project));
+            return Ok(await _projectHandler.CreateProject(project, cancellationToken));
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<ProjectDto>> Update(ProjectDto_UpdateRequest project, Guid id)
+        public async Task<ActionResult<ProjectDto>> Update(ProjectDto_UpdateRequest project, Guid id, CancellationToken cancellationToken = default)
         {
-            return Ok(await _projectHandler.UpdateProject(project, id));
+            return Ok(await _projectHandler.UpdateProject(project, id, cancellationToken));
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
             return Ok(await _projectHandler.DeleteProject(id));
+        }
+
+        [HttpGet("{projectId}/tasks")]
+        public async Task<ActionResult<List<ProjectTaskDto>>> GetProjectTasks(Guid projectId)
+        {
+            return Ok(_projectHandler.GetProjectTasks(projectId));
         }
     }
 }

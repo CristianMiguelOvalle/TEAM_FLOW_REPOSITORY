@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TeamFlow.Common.Dto.Project;
+using TeamFlow.Common.Dto.ProjectTask;
 using TeamFlow.Common.ViewModels;
 using TeamFlow.DB;
+using TeamFlow.DB.entities;
 
 namespace TeamFlow.Projects.Repositories.ProjectRepositories
 {
@@ -56,19 +58,87 @@ namespace TeamFlow.Projects.Repositories.ProjectRepositories
             return result;
         }
 
-        public Task<ProjectDto> CreateProject(ProjectDto_CreateRequest project)
+        public async Task<ProjectDto> CreateProject(ProjectDto_CreateRequest project, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+
+            var entity = new Project()
+            {
+                Description = project.Description,
+                Name = project.Name,
+                IsActive = true,
+                Status = DB.enums.ProjectStatusEnum.Created,
+                OwnerId = project.OwnerId,
+            };
+
+            _teamFlowContext.Projects.Add(entity);
+            await _teamFlowContext.SaveChangesAsync(cancellationToken);
+
+            return new ProjectDto()
+            {
+                Description = entity.Description,
+                Id = entity.Id.ToString(),
+                Name = entity.Name,
+                Status = entity.Status,
+            };
+        }   
+
+        public async Task<ProjectDto> UpdateProject(ProjectDto_UpdateRequest project, Guid id, CancellationToken cancellationToken)
+        {
+            var entity = await _teamFlowContext.Projects.FirstOrDefaultAsync(p => p.Id == id);
+
+            if (entity == null)
+            {
+                throw new Exception("No existe un proyecto con este id");
+            }
+
+            entity.Name = project.Name;
+            entity.Description = project.Description;
+            entity.IsActive = project.IsActive;
+            entity.Status = project.Status;
+            entity.OwnerId = project.OwnerId;
+
+            await _teamFlowContext.SaveChangesAsync(cancellationToken);
+
+            return new ProjectDto()
+            {
+                Description = entity.Description,
+                Id = entity.Id.ToString(),
+                Name = entity.Name,
+                Status = entity.Status,
+            };
         }
 
-        public Task<ProjectDto> UpdateProject(ProjectDto_UpdateRequest project, Guid id)
+        public async Task<bool> DeleteProject(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await _teamFlowContext.Projects.FirstOrDefaultAsync(p => p.Id == id);
+
+            if (entity == null)
+            {
+                throw new Exception("No existe un proyecto con este id");
+            }
+
+            entity.IsDelete = true;
+            await _teamFlowContext.SaveChangesAsync();
+            return true;
         }
 
-        public Task<ProjectDto> DeleteProject(Guid id)
+        public async Task<List<ProjectTaskDto>>GetProjectTasks(Guid projectId)
         {
-            throw new NotImplementedException();
+            var taskList = await _teamFlowContext.ProjectTasks
+                .Where(pt => pt.ProjectId == projectId)
+                .Select(t => new ProjectTaskDto
+                {
+                    Id = t.Id,
+                    Description = t.Description,
+                    Priority = t.Priority,
+                    Status = t.Status,
+                    IsActive = t.IsActive,
+                    AssignedUserId = t.AssignedUserId,
+                    Title = t.Title,
+                })
+                .ToListAsync();
+
+            return taskList;
         }
     }
 }

@@ -5,7 +5,7 @@ using TeamFlow.Common.contracts;
 
 namespace TeamFlow.DB.entities
 {
-    public class User : IAuditableEntity, IDeleteFlagEntity
+    public class User : IEntity, IAuditableEntity, IDeleteFlagEntity
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }

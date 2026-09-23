@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TeamFlow.Common.contracts;
 using TeamFlow.DB.enums;
 
-namespace TeamFlow.DB.entities
+namespace TeamFlow.Common.Dto.ProjectTask
 {
-    public class ProjectTask : IEntity, IAuditableEntity, IDeleteFlagEntity
+    public class ProjectTaskDto
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
@@ -14,11 +13,6 @@ namespace TeamFlow.DB.entities
         public TaskStatus Status { get; set; }
         public TaskPriorityEnum Priority { get; set; }
         public Guid? AssignedUserId { get; set; }
-        public Guid ProjectId { get; set; }
-        public Project Project { get; set; }
         public bool IsActive { get; set; }
-        public DateTimeOffset CreatedDate { get; set; }
-        public DateTimeOffset? LastUpdatedDate { get; set; }
-        public bool IsDelete { get; set; }
     }
 }

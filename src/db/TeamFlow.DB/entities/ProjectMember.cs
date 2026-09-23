@@ -6,7 +6,7 @@ using TeamFlow.DB.enums;
 
 namespace TeamFlow.DB.entities
 {
-    public class ProjectMember : IAuditableEntity, IDeleteFlagEntity
+    public class ProjectMember : IEntity, IAuditableEntity, IDeleteFlagEntity
     {
         public Guid Id { get; set; }
         public Guid ProjectId { get; set; }
