@@ -18,7 +18,7 @@ namespace TeamFlow.Projects.Repositories.ProjectRepositories
 
         public async Task<PaginationResult<ProjectDto>> GetProjectList(PaginationRequest<ProjectDto_FilterRequest> request)
         {
-            IQueryable<ProjectDto> query = (IQueryable<ProjectDto>)_teamFlowContext.Projects;
+            IQueryable<Project> query = _teamFlowContext.Projects;
 
             if (request.Params.Name !=  null)
             {
@@ -30,15 +30,20 @@ namespace TeamFlow.Projects.Repositories.ProjectRepositories
                 query = query.Where(p => p.Description.Contains(request.Params.Description));
             }
 
-            query.Select(p => new ProjectDto
-             {
-                 Id = p.Id.ToString(),
-                 Name = p.Name,
-                 Description = p.Description,
-                 Status = p.Status,
-             });
+            query = query
+                    .OrderByDescending(p => p.CreatedDate)
+                    .ThenBy(p => p.Id);
 
-            return await PaginationResultExtension<ProjectDto>.SetGridPaginationResult(query,request.Page, request.PageSize);
+            IQueryable<ProjectDto> projectedQuery =
+                    query.Select(p => new ProjectDto
+                    {
+                        Id = p.Id.ToString(),
+                        Name = p.Name,
+                        Description = p.Description,
+                        Status = p.Status
+                    });
+
+            return await PaginationResultExtension<ProjectDto>.SetGridPaginationResult(projectedQuery, request.Page, request.PageSize);
         }
 
         public async Task<ProjectDto?> GetProjectById(Guid id)

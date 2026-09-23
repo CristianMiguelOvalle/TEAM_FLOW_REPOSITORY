@@ -51,7 +51,7 @@ namespace TeamFlow.Projects.Api.Controllers
         [HttpGet("{projectId}/tasks")]
         public async Task<ActionResult<List<ProjectTaskDto>>> GetProjectTasks(Guid projectId)
         {
-            return Ok(_projectHandler.GetProjectTasks(projectId));
+            return Ok(await _projectHandler.GetProjectTasks(projectId));
         }
     }
 }

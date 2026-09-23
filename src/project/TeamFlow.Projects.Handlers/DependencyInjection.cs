@@ -10,7 +10,7 @@ namespace TeamFlow.Projects.Handlers
     {
         public static IServiceCollection AddHandler(this IServiceCollection services)
         {
-            //services.AddTransient<IProjectHandler, ProjectHandler>();
+            services.AddTransient<IProjectHandler, ProjectHandler>();
             return services;
         }
     }
